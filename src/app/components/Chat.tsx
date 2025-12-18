@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getCompletion } from "../server-actions/getCompletion";
+import Transcript from "./Transcript";
+import { useRouter } from "next/navigation";
 
 
 // Representation of Message Data Model
@@ -12,19 +14,43 @@ interface Message {
     content: string;
 }
 
+// We extended the capability of Chat Component from
+// Only initiating a chat
+// To taking a chat ID and displaying the past messages
+// Chat - Display Messages Message[]
+// Message type has role and content
 
-export default function Chat() {
-    const chatId = useRef<number | null>(null);
+
+export default function Chat(
+   {
+    id = null,
+    messages : initialMessages = []
+    }:{
+        id?:number|null;
+        messages?:Message[]
+    }
+) {
+    const chatId = useRef<number | null>(id);
     // Transcript
-    const [messages, setMessages] = useState<Message[]>([]);
+    const [messages, setMessages] = useState<Message[]>(initialMessages);
     // Single Message
     const [message, setMessage] = useState("");
+
+    
+    let router = useRouter();
 
     const onClick = async () =>{
         // calling chatgpt directly from client would expose openai token
         // We can use api/route or server actions, 
         // server actions are fundamental to app router, which lets our client talk to the server
         const completions = await getCompletion(chatId.current,[...messages, {role:'user', content:message}])
+
+
+        if(!chatId.current){
+            router.push(`/chats/${completions.id}`)
+            router.refresh()
+        }
+
 
         chatId.current = completions.id;
 
@@ -38,23 +64,8 @@ export default function Chat() {
 
         {/* UI Displays Messages Transcript messages contain message objects */}
             <div className="flex flex-col">
-                {messages.map((message, i) => (
-                    <div
-                        key={i}
-                        className={`mb-5 flex flex-col ${message.role === "user" ? "items-end" : "items-start"
-                            }`}
-                    >
-                        <div
-                            className={`${message.role === "user" ? "bg-blue-500" : "bg-gray-500 text-black"
-                                } rounded-md py-2 px-8`}
-                        >
-                            {message.content}
-                        </div>
-                    </div>
-                ))}
+            <Transcript messages={messages}/>
             </div>
-
-
             {/* User Input Interface gathers the message state */}
             {/* getCompletion action is also triggered from this interface  */}
             <div className="flex border-t-2 border-t-gray-500 pt-3 mt-3">

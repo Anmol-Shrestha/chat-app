@@ -40,11 +40,15 @@ export async function getCompletion(
     ];
 
     const session = await auth();
-    
+    // We do not have ChatID
+    // when we first ask a question
+    // so we use CreateChat returns chatId after storing chatdetails
+    // and after storing Message Details
+    // chatId
     let chatId = id;
     if(!chatId){
         chatId = await createChat(
-      "anmolstha777@gmail.com",
+      session?.user?.name!,
       messageHistory[0].content,
       messages
         )
