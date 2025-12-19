@@ -50,7 +50,10 @@ export default function UserButton({
 
        {/* if unauthenticated then button */}
       {status === "unauthenticated" && (
-        <Button onClick={() => onSignIn()}>Sign in</Button>
+        <Button onClick={() => {
+          console.log("clicked")
+          return onSignIn()
+        }}>Sign in</Button>
       )}
     </div>
   );
