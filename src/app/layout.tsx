@@ -18,8 +18,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  chats,
 }: Readonly<{
   children: React.ReactNode;
+  chats:React.ReactNode;
 }>) {
   // auth() returns an object with multiple objects in it.
   // we only need the user object with values such as name, email, image.
@@ -59,6 +61,7 @@ export default async function RootLayout({
             </div>
           </header>
           <div className="flex flex-col md:flex-row">
+            {chats}
             <div className="flex-grow">{children}</div>
           </div>
         </body>
