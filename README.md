@@ -29,12 +29,12 @@ a **full-stack, authenticated AI chat interface** with **real-time streaming** a
 
 ## 🛠️ Tech Stack
 
-- **Framework:** Next.js 14 / 15 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **AI:** OpenAI API (Streaming enabled)
 - **Database:** PostgreSQL
 - **Styling:** Tailwind CSS, CSS Modules, Shadcn UI
-- **Authentication:** GitHub OAuth (NextAuth/Auth.js)
-- **Deployment:** Vercel / Railway / Docker (configurable)
+- **Authentication:** GitHub (NextAuth/Auth.js)
+- **Deployment:** Vercel 
 
 ---
 
@@ -59,8 +59,3 @@ a **full-stack, authenticated AI chat interface** with **real-time streaming** a
 🚧 **Phase 1 Complete** — Authenticated streaming chat with persistence  
 🔜 **Next Phases** — Study planning, WBS generation, quizzes, analytics, and personalized learning insights
 
----
-
-## 📄 License
-
-MIT License
