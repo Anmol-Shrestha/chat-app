@@ -1,37 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🔒 LOCKEDIN | Full-Stack GenAI Study Platform
 
-First, run the development server:
+**LOCKEDIN** is a study management platform designed to automate the *non-learning* tasks of the student journey, so users can focus entirely on understanding and retention.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This repository contains **Phase 1** of the application:  
+a **full-stack, authenticated AI chat interface** with **real-time streaming** and **persistent data storage**.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Real-time LLM Streaming**  
+  Uses OpenAI’s streaming API to deliver responses token-by-token, providing a smooth and low-latency chat experience.
 
-## Learn More
+- **Persistent Chat History**  
+  Full-stack integration with **PostgreSQL** ensures study sessions are saved and accessible across devices.
 
-To learn more about Next.js, take a look at the following resources:
+- **Secure Authentication**  
+  GitHub OAuth powered by **NextAuth/Auth.js** for secure and reliable user sessions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Modern UI/UX**  
+  A focus-first interface built using **Tailwind CSS**, **CSS Modules**, and **Shadcn UI** components.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Edge-Ready Architecture**  
+  Built on the **Next.js App Router**, optimized for performance, scalability, and modern deployment platforms.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# chat-app
+- **Framework:** Next.js 14 / 15 (App Router)
+- **AI:** OpenAI API (Streaming enabled)
+- **Database:** PostgreSQL
+- **Styling:** Tailwind CSS, CSS Modules, Shadcn UI
+- **Authentication:** GitHub OAuth (NextAuth/Auth.js)
+- **Deployment:** Vercel / Railway / Docker (configurable)
+
+---
+
+## 🏗️ Architecture Flow
+
+1. **Client**  
+   The user sends a prompt via the Shadcn-based chat interface.
+
+2. **Server**  
+   A Next.js Route Handler validates the user session and forwards the request to the OpenAI API.
+
+3. **Streaming**  
+   The LLM response is streamed back to the frontend in real time using Server-Sent Events (SSE).
+
+4. **Persistence**  
+   Once streaming completes, the final assistant message is stored in the PostgreSQL database for long-term chat history.
+
+---
+
+## 📌 Status
+
+🚧 **Phase 1 Complete** — Authenticated streaming chat with persistence  
+🔜 **Next Phases** — Study planning, WBS generation, quizzes, analytics, and personalized learning insights
+
+---
+
+## 📄 License
+
+MIT License
