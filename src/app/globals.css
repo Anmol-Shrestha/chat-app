@@ -1,3 +1,8 @@
+*,*::before, *::after{
+  
+  box-sizing: border-box;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -110,6 +115,11 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+
+
+
+  /* Custom */
+
 }
 
 @layer base {
@@ -119,5 +129,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+
+:root{
+  --primary-color:#0c0c0c;
+  --contrast-color:#F0F4F8;
+  --gradient-primary: linear-gradient(
+  to right,
+  #DC6668 0%,
+  #65141B 100%
+);
+}
+
+
+
+body{
+  padding: 0;
 }
 

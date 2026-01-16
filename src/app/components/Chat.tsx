@@ -18,6 +18,7 @@ export default function Chat({
   id?: number | null;
   messages?: Message[];
 }) {
+  
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [message, setMessage] = useState("");
   const chatId = useRef<number | null>(id);
@@ -42,8 +43,12 @@ export default function Chat({
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex gap-6 flex-col h-2/6 rounded-lg shadow-lg">
+
+      {/* Messages */}
       <Transcript messages={messages} truncate={false} />
+
+      {/* Input */}
       <div className="flex border-t-2 border-t-gray-500 pt-3 mt-3">
         <Input
           className="flex-grow text-xl"

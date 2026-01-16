@@ -3,7 +3,6 @@ import { sql } from "@vercel/postgres";
 import type { Chat, ChatWithMessages, Message } from "../types";
 
 
-
 export async function createChat(
   userEmail: string,
   name: string,
@@ -56,7 +55,6 @@ export async function getChats(userEmail: string): Promise<Chat[]> {
     await sql`SELECT * FROM chats WHERE user_email = ${userEmail}`;
   return chats as Chat[];
 }
-
 
 export async function getChatsWithMessages(
   userEmail: string

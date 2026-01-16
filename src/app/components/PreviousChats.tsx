@@ -26,7 +26,7 @@ async function PreviousChats() {
               <div key={chat.id} className="m-1 border-2 rounded-xl">
                 <Link
                   href={`/chats/${chat.id}`}
-                  className="text-lg line-clamp-1 px-5 py-2 text-white bg-blue-900 rounded-t-lg"
+                  className="text-lg line-clamp-1 px-5 py-2 text-dark rounded-t-lg"
                 >
                   {chat.name}
                 </Link>

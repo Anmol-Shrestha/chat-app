@@ -1,0 +1,16 @@
+/* Contains styles for main layouts and main page*/
+
+.mainLayout{
+
+    max-width: 1200px;
+    margin:0 auto;
+    padding: 50px 0;
+    gap:5rem;
+
+}
+
+.main{
+    max-width: 1200px;
+    margin:0 auto;
+    padding: 50px 0;
+}

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 
 export const config = {
-  matcher: ["/chats/:chatid*"],
+  matcher: ["/chats/:chatid*","/history"],
 };
 
 export default auth((req) => {

@@ -8,20 +8,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { signOut, useSession } from "next-auth/react";
+// Sign out is an event that should be called with client side sign out function
+
+import {  signOut, useSession } from "next-auth/react";
+import { signInNew } from "@/helper";
 
 function getFirstTwoCapitalLetters(str?: string | null) {
   const match = (str || "").match(/[A-Z]/g);
   return match ? match.slice(0, 2).join("") : "GT";
 }
 
-export default function UserButton({
-  onSignIn
-
-}: {
-  onSignIn: () => Promise<void>;
-  
-}) {
+export default function UserButton () {
   const { data: session, status } = useSession();
 
   return (
@@ -51,8 +48,8 @@ export default function UserButton({
        {/* if unauthenticated then button */}
       {status === "unauthenticated" && (
         <Button onClick={() => {
-          console.log("clicked")
-          return onSignIn()
+         
+          return signInNew()
         }}>Sign in</Button>
       )}
     </div>
