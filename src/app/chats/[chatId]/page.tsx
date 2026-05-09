@@ -3,6 +3,8 @@ import { auth } from "@/auth"
 import { getChat } from "@/db"
 import { notFound } from "next/navigation"
 import { redirect } from "next/navigation"
+
+
 // Force nextjs to re-render and fetch fresh data each time it is requested
 export const dynamic = 'force-dynamic'
 export default async function ChatDetail({

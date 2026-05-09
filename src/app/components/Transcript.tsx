@@ -14,7 +14,7 @@ export default function Transcript({
 }) {
 
 
-
+console.log(messages)
 
   return (
     <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -31,7 +31,7 @@ export default function Transcript({
       {messages.map((message, index) => (
         <div
           key={index}
-          className={`flex gap-3 flex ${message.role === "user" ? "items-end" : "items-start"
+          className={`flex gap-3 ${message.role === "user" ? "justify-end" : "items-start"
             }`}
         >
             {message.role === 'assistant' && (

@@ -7,9 +7,19 @@ export interface Chat {
   timestamp: Date;
 }
 
+// STEP 1: Change the Type Definition
+// export interface Message {
+//   role: "user" | "assistant";
+//   content: string;
+// }
+
+type ContentPart =
+  | { type: "text"; text: string }
+  | { type: "image_url"; imageUrl: { url: string } };
+
 export interface Message {
   role: "user" | "assistant";
-  content: string;
+  content: string ;
 }
 
 export interface StoredMessage extends Message {

@@ -86,9 +86,14 @@ export async function getMessages(chatId: number) {
   }));
 }
 
+function serializeContent(content: Message["content"]): string {
+  if (typeof content === "string") return content;
+  return JSON.stringify(content);
+}
+
 export async function updateChat(chatId: number, msgs: Message[]) {
   await sql`DELETE FROM messages WHERE chat_id = ${chatId}`;
   for (const msg of msgs) {
-    await sql`INSERT INTO messages (chat_id, role, content) VALUES (${chatId}, ${msg.role}, ${msg.content})`;
+    await sql`INSERT INTO messages (chat_id, role, content) VALUES (${chatId}, ${msg.role}, ${serializeContent(msg.content)})`;
   }
 }

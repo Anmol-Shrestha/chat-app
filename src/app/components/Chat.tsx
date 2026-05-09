@@ -13,7 +13,7 @@ import { Message } from "@/types";
 
 export default function Chat({
   id = null,
-  messages: initialMessages = [],
+  messages: initialMessages=[],
 }: {
   id?: number | null;
   messages?: Message[];
@@ -42,8 +42,13 @@ export default function Chat({
     setMessages(completions.messages);
   };
 
+
+
+
+  
+
   return (
-    <div className="flex gap-6 flex-col h-2/6 rounded-lg shadow-lg">
+    <div className="flex gap-6 flex-col rounded-lg shadow-lg">
 
       {/* Messages */}
       <Transcript messages={messages} truncate={false} />
