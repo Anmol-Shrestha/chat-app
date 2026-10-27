@@ -1,5 +1,5 @@
 
-# 🔒 LOCKEDIN | Full-Stack GenAI Study Platform
+# OVERVIEW
 
 **LOCKEDIN** is a study management platform designed to automate the *non-learning* tasks of the student journey, so users can focus entirely on understanding and retention.
 
@@ -8,7 +8,7 @@ a **full-stack, authenticated AI chat interface** with **real-time streaming** a
 
 ---
 
-## 🚀 Features
+## FEATURES
 
 - **Real-time LLM Streaming**  
   Uses OpenAI’s streaming API to deliver responses token-by-token, providing a smooth and low-latency chat experience.
@@ -27,7 +27,7 @@ a **full-stack, authenticated AI chat interface** with **real-time streaming** a
 
 ---
 
-## 🛠️ Tech Stack
+## TECHSTACK
 
 - **Framework:** Next.js 16 (App Router)
 - **AI:** OpenAI API (Streaming enabled)
@@ -38,7 +38,7 @@ a **full-stack, authenticated AI chat interface** with **real-time streaming** a
 
 ---
 
-## 🏗️ Architecture Flow
+## ARCHITECTURE FLOW
 
 1. **Client**  
    The user sends a prompt via the Shadcn-based chat interface.
